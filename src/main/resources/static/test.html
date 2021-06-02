@@ -1,0 +1,762 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-155149356-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-155149356-1');
+		</script>
+
+        <script>
+            function validateEmail(email) {
+                const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+            }
+
+            function validateForm() {
+
+                var firstName = document.getElementById("firstName").value.trim();
+                var lastName = document.getElementById("lastName").value.trim();
+                var company = document.getElementById("company").value.trim();
+                var email = document.getElementById("email").value.trim();
+                console.log("LASTNAME:|",lastName,"|");
+                console.log("COMPANY:|",company,"|");
+                console.log("EMAIL:|",email,"|");
+
+                if (firstName == "") {
+                    document.getElementById("firstNameMessage").innerHTML = "(Required)";
+                    return false;
+                } else {
+                    document.getElementById("firstNameMessage").innerHTML = "";
+                }
+
+                if (lastName == "") {
+                    document.getElementById("lastNameMessage").innerHTML = "(Required)";
+                    return false;
+                } else {
+                    document.getElementById("lastNameMessage").innerHTML = "";
+                }
+
+                if (company == "") {
+                    document.getElementById("companyMessage").innerHTML = "(Company is required)";
+                    return false;
+                } else {
+                    document.getElementById("companyMessage").innerHTML = "";
+                }
+
+                if (email == "" || !validateEmail(email)) {
+                    document.getElementById("emailMessage").innerHTML = "(Valid email is required)";
+                    return false;
+                } else {
+                    document.getElementById("emailMessage").innerHTML = "";
+                }
+                return true;
+            }
+        </script>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<title>Automated Open Source Security & Licence Compliance | Threatrix</title>
+<link rel="canonical" href="https://threatrix.io" />
+<meta name="description" content="Automatically find and fix software vulnerabilities and comply with the license requirements in open source dependencies used in your enterprise applications">
+
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome
+        <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">-->
+        <link href="/assets/font-awesome-pro/css/all.css" rel="stylesheet"> <!--load all styles -->
+        <!-- Iconmoon -->
+        <link href="/assets/iconmoon/css/iconmoon.css" rel="stylesheet">
+        <!-- Owl Carousel -->
+        <link href="/assets/owl-carousel/css/owl.carousel.min.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="/css/custom.css" rel="stylesheet">
+		<link rel="shortcut icon" href="/images/favicon.ico">
+		
+    </head>
+	
+    <body>
+	
+<!-- ==============================================
+		NAVIGATION HEADER
+=================================================== -->
+        <header class="opt5">
+            <!-- Start Navigation -->
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container"> <a class="navbar-brand" href="/"><img style="width:175px" src="/images/logo-main.png" class="img-fluid logo1" alt="Threatrix, Inc. Logo - Black"><img src="/images/logo-main-white.png" style="width:175px" class="img-fluid logo2" alt="Threatrix, Inc. Logo - White"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+                    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+						 
+                        <ul class="navbar-nav mr-auto">
+							<li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Product</a>
+                                <div class="dropdown-menu dropdown-menu-large" aria-labelledby="dropdown1">
+                                    <div class="inner row" style="display:flex">
+                                        <div class="column" style="flex:50%; padding-right:20px">
+                                            <div style="margin-left: 15px;color:#1d3557;border-bottom: 1px solid #1d3557">
+                                                Products
+                                            </div>
+                                            <!-- Vulnerability Management -->
+                                            <a class="dropdown-item" href="/vulnerability-management">Vulnerability Management</a>
+                                            <div style="font-size:12px;margin-left:15px;margin-bottom:20px; color:black">
+                                                Automatically find and fix open source vulnerabilities in dependencies, source files
+                                                local open source assets
+                                            </div>
+
+                                            <!-- License Management -->
+                                            <a class="dropdown-item" href="/license-management">License Compliance Management</a>
+                                            <div style="font-size:12px;margin-left:15px;margin-bottom:20px; color:black">
+                                                Accurate license detection in dependencies and source code with automated source code attribution
+                                            </div>
+
+                                            <!-- Supply Chain Management -->
+                                            <a class="dropdown-item" href="/supply-chain-risk-management">Supply Chain Risk & Quality</a>
+                                            <div style="font-size:12px;margin-left:15px;margin-bottom:20px; color:black">
+                                                Open source supply chain risk and quality data detects anomalies that put
+                                                your company at risk. We automatically alert and gate threatening components
+                                            </div>
+
+                                            <!-- Embedded Open Source  -->
+                                            <a class="dropdown-item" href="/embedded-open-source">Embedded Open Source Detection</a>
+                                            <div style="font-size:12px;margin-left:15px;margin-bottom:20px; color:black">
+                                                Up to 15% of your software is made from embedded open source. We can detect, report and
+                                                automatically annotate your source files to ensure compliance
+                                            </div>
+
+                                        </div>
+                                        <div class="column" style="flex:50%;padding-right:20px">
+
+                                            <!--
+                                            <a class="dropdown-item" href="index1.html">Source Code Leak Detection</a>
+                                            <div style="font-size:12px;margin-left:15px;margin-bottom:20px; color:black">
+                                                Some interesting shit about vulnerability detection.
+                                            </div>
+
+                                            <a class="dropdown-item" href="index1.html">Secrets Leak Detection</a>
+                                            <div style="font-size:12px;margin-left:15px;margin-bottom:20px; color:black">
+                                                Some interesting shit about vulnerability detection.
+                                            </div>
+                                            <a class="dropdown-item" href="index1.html">Infrastructure As Code</a>
+                                            <div style="font-size:12px;margin-left:15px;margin-bottom:20px; color:black">
+                                                Some interesting shit about vulnerability detection.
+                                            </div>
+                                            <a class="dropdown-item" href="index1.html">Container Security</a>
+                                            <div style="font-size:12px;margin-left:15px;margin-bottom:20px; color:black">
+                                                Some interesting shit about vulnerability detection.
+                                            </div>
+                                            -->
+
+                                            <div style="margin-left: 15px;color:#1d3557;border-bottom: 1px solid #1d3557">
+                                                Services
+                                            </div>
+                                            <a class="dropdown-item" href="/open-source-audit">Mergers & Acquisitions + Audits</a>
+                                            <div style="font-size:12px;margin-left:20px;margin-bottom:20px; color:black">
+                                                Quick, comprehensive, and accurate open source license and vulnerability audit
+                                                with actionable data and automated license annotation.
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </li>
+							<li class="nav-item dropdown"> 
+                                <a class="nav-link dropdown-toggle" id="dropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdown2">
+                                    <div class="inner"> 
+                                        <a class="dropdown-item" href="/blog">Blog</a>
+                                        <a class="dropdown-item" href="/integrations-languages">Integrations & Language Support</a>
+                                        <!-- <a class="dropdown-item" href="index1.html">Competitive Matrix</a> -->
+                                    </div>
+                                </div>
+                            </li>
+							<li class="nav-item dropdown"> 
+                                <a class="nav-link dropdown-toggle" id="dropdown3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Company</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdown3">
+                                    <div class="inner"> 
+                                        <a class="dropdown-item" href="/about-us">About us</a>
+                                        <!-- <a class="dropdown-item" href="index1.html">Jobs @ Threatrix</a> -->
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/pricing" class="nav-link">Pricing</a>
+                            </li>
+							<li class="nav-item">
+								<a href="/contact" class="nav-link">Contact</a>
+							</li>
+                        </ul>
+                        <ul class="navbar-right d-flex" >
+                            <li><a href="/contact">Request a Demo</a></li>
+                            <li><a href="/login.html">Threat Center Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navigation --> 
+        </header>
+
+    <div class="page-header" style="background: url(../images/banner-img-main.jpg) no-repeat right top, black;">
+        <div class="banner" style="background-image: linear-gradient(to top left, rgba(29, 53, 87, 0) 40%, #457B9D);">
+            <div class="container">
+                <div class="row cnt-block">
+                    <div class="col-md-12">
+                        <div class="left" style="max-width: 625px;border: none;margin-top: 100px">
+                            <h1>Enterprise-Class Security, Compliance and Open Source Supply Chain Risk Management</h1>
+                            <p>
+                                Automate your open source supply chain, security and license
+                                compliance so that your team can focus on delivering great software
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="height: 15px; background-color: #457b9d"></div>
+
+<!-- ==============================================
+		FEATURES
+=================================================== -->		
+
+       <section class="content-marketing padding-lg" style="background: #f5f5f5">
+	   		<div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <div class="head-block">
+                            <h2>Automated Risk Mitigation and Compliance for <br/>Your Open Source Supply Chain</h2>
+                            <p>Threatrix empowers industry-leading companies with the enterprise-class features, automation, and risk management solutions
+							that your security teams demand and your legal teams require while supporting developers with fluid workflows to easily mitigate your companies risks</p>
+                        </div>
+                    </div>
+                </div>
+                <ul class="row marketing-list">
+                    <li class="col-md">
+						<a href="vulnerability-management">
+                          <div class="inner">
+                              <i style="color: #2b4261" class="fad fa-shield fa-5x"></i>
+                              <h3 style="height:150px">Open Source Vulnerability Management</h3>
+                              <p style="height:225px">Accurate detection of open source components coupled with the industries leading vulnerability data fabric provide for maximum risk reduction</p>
+                              <a href="vulnerability-management" class="know-more">Learn More</a>
+  						</div>
+						</a>
+                    </li>
+                    <li class="col-md">
+						<a href="license-management">
+                          <div class="inner">
+                              <i style="color: #2b4261" class="fad fa-file-exclamation fa-5x"></i>
+  							<h3 style="height:150px">Open Source License Management</h3>
+                              <p style="height:225px">No other solution provides better license detection and risk mitigation. Our proprietary scanning, embedded asset matching, and breadth of license detection are unparalleled.</p>
+                              <a href="license-management" class="know-more">Learn More</a>
+  						</div>
+						</a>
+                    </li>
+                    <li class="col-md">
+                        <a href="supply-chain-risk-management">
+                            <div class="inner">
+                                <i style=" color:#2b4261 " class="fad fa-link fa-5x"></i>
+                                <h3 style="height:150px">Open Source Supply Chain Risk & Quality</h3>
+                                <p style="height:225px">Your open source supply chain poses significant risk by way of a multitude of attack vectors. We automatically detect high risk components and alert your team or block their use.</p>
+                                <a href="supply-chain-risk-management" class="know-more">Learn More</a>
+                                <div>
+                        </a>
+                    </li>
+                    <li class="col-md">
+                        <a href="embedded-open-source">
+                            <div class="inner">
+                                <!--<figure><img style="height:75px" src="images/sdl.png" class="img-fluid" alt=""></figure>-->
+                                <i style=" color:#2b4261 " class="fad fa-code fa-5x"></i>
+                                <h3 style="height:150px">Embedded Open Source Detection & Reporting</h3>
+                                <p style="height:225px">Find embedded open source at the speed of DevOps. We detect open source snippets in your code with extreme accuracy and track them back to the original license.</p>
+                                <a href="embedded-open-source" class="know-more">Learn More</a>
+                            <div>
+                        </a>
+                    </li>
+
+					<!--
+                    <li class="col-md">
+						<a href="#">
+                           <div class="inner">
+                              <figure><img style="height:75px" src="images/sdl.png" class="img-fluid" alt=""></figure>
+                              <h3 style="height:125px">Source Code Leak Detection</h3>
+  							<p style="height:225px">Our proprietary asset matching algorithm enables us detect source code, senstive data leaks to the internet or dark web. </p>
+                              
+                              <a href="#" class="know-more">Learn More</a>
+						  <div>
+						</a>	
+                    </li>
+					<li class="col-md">
+						<a href="#">
+                        <div class="inner">
+                            <figure><img style="height:75px" src="images/secrets.jpg" class="img-fluid" alt=""></figure>
+                            <h3 style="height:125px">Secrets Detection</h3>
+							<p style="height:225px">Our proprietary asset matching algorithm enables us detect source code, senstive data leaks to the internet or dark web. </p>
+                            
+                            <a href="#" class="know-more">Learn More</a>
+						</div>
+						</a>
+                    </li>-->
+                </ul>
+            </div>
+        </section>
+
+<!-- ==============================================
+		FEATURES
+=================================================== -->
+
+        <section id="features" class="client-speak our-features padding-lg" style="background-image: linear-gradient(to top left, rgb(29, 53, 87) 20%, #457B9D); font-color:white">
+            <div class="container">
+                <div class="row justify-content-center head-block">
+                    <div class="col-md-10">
+                        <h2 style="color: white">
+							Enterprise Class Solutions<br>
+                        	Focused On Developer Adoption
+						</h2>
+                        <p style="color: #a8dadc;" class="hidden-xs">Developer adoption drives open source license compliance. Threatrix features including automated license attribution, policy enforcement, and enterprise RBAC simplifies licensing compliance</p>
+                    </div>
+                </div>
+                <ul class="row features-listing">
+                    <li class="col-md-4">
+                        <span class="img-shadow"><img height=50 width=50 src="images/scan-time.svg" alt="Fastest component scan times"></span>
+						<h3>Fastest Scan Times</h3>
+                        <p>50x faster analysis times than legacy tools for library matching, file matching, and unsurpassed deep snippet matching scans</p>
+                    </li>
+                    <li class="col-md-4">
+                        <span class="img-shadow"><img height=50 width=50 src="images/accuracy.svg" alt="Unsurpassed accuracy"></span>
+                        <h3>Unsurpassed Accuracy</h3>
+                        <p>Accurately detects all open source in source code, binaries, build dependencies, and copy & pasted code snippets</p>
+                    </li>
+                    <li class="col-md-4">
+                        <span class="img-shadow"><img height=50 width=50 src="images/auto-attribution.svg" alt="Automated open source license attribution"></span>
+                        <h3>Automated License Attribution</h3>
+                        <p>Robust automated license attribute workflow prepares attribution documentation for deployments</p>
+                    </li>
+                    <li class="col-md-4">
+                        <span class="img-shadow"><img height=50 width=50 src="images/extensible-dashbaords.png" alt="Tierd dashboards"></span>
+                        <h3>Extensible Dashboards</h3>
+                        <p>Configurable tiered dashboard system easily accommodates any organizational structure</p>
+                    </li>
+					<li class="col-md-4">
+                        <span class="img-shadow"><img height=50 width=50 src="images/actionable-compliance.png" alt="Actionable open source license compliance"></span>
+                        <h3>Actionable Compliance</h3>
+                        <p>Pinpoint accuracy for your developers to attribute their open source snippets</p>
+                    </li>
+                    <li class="col-md-4">
+                        <span class="img-shadow"><img height=50 width=50 src="images/devops.png" alt="Devops integration"></span>
+                        <h3>DevOps Integration</h3>
+                        <p>Quickly integrates anywhere into your DevOps pipeline</p>
+                    </li>
+					<li class="col-md-4">
+                        <span class="img-shadow"><img height=50 width=50 src="images/policy.svg" alt="Open source license policy enforcement"></span>
+                        <h3>Policy Enforcement</h3>
+                        <p>Sophisticated Policy Engine empowers governance managers to enforce compliance</p>
+                    </li>
+                    <li class="col-md-4">
+                        <span class="img-shadow"><img height=50 width=50 src="images/reporting.png" alt="Open source license reporting"></span>
+                        <h3>Robust Reporting</h3>
+                        <p>Dashboard exportable reports in PDF, JSON, Excel, and SPDX formats</p>
+                    </li>
+					<li class="col-md-4">
+                        <span class="img-shadow"><img height=50 width=50 src="images/rbac.png" alt=""></span>
+						<h3>Enterprise RBAC</h3>
+						<p>Extensible role-based access control powers granular access to your most sensitive data</p>
+                    </li>
+				</ul>
+            </div>
+        </section>
+		
+<!-- ==============================================
+	 			Technology
+===================================================
+        <section id="technology" class="how-it-works-sec">
+            <div class="sided-item-wrapper padding-lg">
+                <div class="container">
+                    <h2>Technology</h2>
+                    <div class="row">
+                        <div class="col-md-9 content-area">
+                            <ul class="row marketing-list3">
+                                <li class="col-md-6 equal-hight">
+                                    <div class="ico-block"><img height=75 width=75 src="images/data-collection.png" class="img-fluid" alt="Comprehensive open source data collection"></div>
+                                    <div class="cnt-block">
+                                        <h3>Comprehensive Data Collection</h3>
+                                        <p>More than 50 sources of data ensure pinpoint accuracy in your results</p>
+                                    </div>
+                                </li>
+                                <li class="col-md-6 equal-hight">
+                                    <div class="ico-block"><img height=75 width=75 src="images/integration.png" class="img-fluid" alt="Easy to integrate into your pipeline`"></div>
+                                    <div class="cnt-block">
+                                        <h3>Ease of Integration</h3>
+                                        <p>Our scanning agent installs in seconds and integrates easily into your DevOps pipeline, desktop or source repositories</p>
+                                    </div>
+                                </li>
+                                <li class="col-md-6 equal-hight">
+                                    <div class="ico-block"><img height=75 width=75 src="images/global-saas.png" class="img-fluid" alt="Global solution is available anywhere"></div>
+                                    <div class="cnt-block">
+                                        <h3>Global SaaS Based Solution</h3>
+                                        <p>Your data can be located in one or all of our data centers making it instantly available anywhere</p>
+                                    </div>
+                                </li>
+                                <li class="col-md-6 equal-hight">
+                                    <div class="ico-block"><img height=75 width=75 src="images/data-centers.png" class="img-fluid" alt="6 data centers"></div>
+                                    <div class="cnt-block">
+                                        <h3>Six Data Centers</h3>
+                                        <p>Your data is always nearby (Oregon, N Virgina, London, Zurich, Mumbai, Tokyo)</p>
+                                    </div>
+                                </li>
+								<li class="col-md-6 equal-hight">
+                                    <div class="ico-block"><img height=75 width=75 src="images/graphql.png" class="img-fluid" alt="Comprehensive GraphQL API for fast data extraction"></div>
+                                    <div class="cnt-block">
+                                        <h3>GraphQL API</h3>
+                                        <p>Extensible GraphQL API returns exactly the data you need with lightning fast response times</p>
+                                    </div>
+                                </li>
+                                <li class="col-md-6 equal-hight">
+                                    <div class="ico-block"><img height=75 width=75 src="images/spdx.png" class="img-fluid" alt="Open source license SPDX data"></div>
+                                    <div class="cnt-block">
+                                        <h3>SPDX Data</h3>
+                                        <p>Standards based SPDX data available through our dashboard and API</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-sided-full-image">
+                    <figure><img src="images/technology-browser.png" alt=""></figure>
+                </div>
+            </div>
+        </section>		
+		-->
+
+<!-- ==============================================
+		INTEGRATIONS
+=================================================== -->
+        <section id="integrations" class="client-speak our-features padding-lg">
+            <div class="container">
+                <div class="row justify-content-center head-block">
+                    <div class="col-md-10">
+                        <h2>Integrations</h2>
+                        <p class="hidden-xs">Threatrix provides a wide range of DevOps, workflow, data management, and developer integrations</p>
+                    </div>
+                </div>
+                <ul class="row integration-listing">
+                    <li class="col-md-3"> <span class="icon">
+						<img height=60 width=60 src="images/integrations/gitlab-small.png" alt="Gitlab"></span>
+                        <h3>Gitlab</h3>
+                    </li>
+                    <li class="col-md-3"> <span class="icon">
+						<img height=60 width=60 src="images/integrations/azure-small.png" alt="Azure"></span>
+                        <h3>Azure</h3>
+                    </li>
+                    <li class="col-md-3"><span class="icon">
+						<img height=60 width=60 src="images/integrations/bamboo-small.png" alt="Bamboo"></span>
+                        <h3>Bamboo</h3>
+                    </li>
+                    <li class="col-md-3"> <span class="icon">
+						<img height=60 width=60 src="images/integrations/cirecleci-small.png" alt="Circle CI"></span>
+                        <h3>CircleCI</h3>
+                    </li>
+					<li class="col-md-3"> <span class="icon">
+						<img height=60 width=60 src="images/integrations/cloudbees-small.png" alt="Cloudbees"></span>
+                        <h3>CloudBees</h3>
+                    </li>
+                    <li class="col-md-3"> <span class="icon">
+						<img height=60 width=60 src="images/integrations/github-small.png" alt="Github"></span>
+                        <h3>Github</h3>
+                    </li>
+                    <li class="col-md-3"><span class="icon">
+						<img height=60 width=60 src="images/integrations/threadfix-small.png" alt="Threadfix"></span>
+                        <h3>ThreadFix</h3>
+                    </li>
+                    <li class="col-md-3"> <span class="icon">
+						<img height=60 width=60 src="images/integrations/jenkins-small.png" alt="Jenkins"></span>
+                        <h3>Jenkins</h3>
+                    </li>
+					<li class="col-md-3"> <span class="icon">
+						<img height=60 width=60 src="images/integrations/jira-small.png" alt="Jira"></span>
+                        <h3>Jira</h3>
+                    </li>
+                    <li class="col-md-3"> <span class="icon">
+						<img width=60 src="images/integrations/servicenow-small.png" alt="Service Now"></span>
+                        <h3>ServiceNow</h3>
+                    </li>
+                    <li class="col-md-3"><span class="icon">
+						<img height=60 width=60 src="images/integrations/slack-small.png" alt="Slack"></span>
+                        <h3>Slack</h3>
+                    </li>
+                    <li class="col-md-3"> <span class="icon">
+						<img height=60 width=60 src="images/integrations/teamcity-small.png" alt="eam City"></span>
+                        <h3>Team City</h3>
+                    </li>
+					<li class="col-md-3"> <span class="icon">
+						<img height=60 width=60 src="images/integrations/google-small.png" alt="Google SSO"></span>
+                        <h3>Google SSO</h3>
+                    </li>
+                    <li class="col-md-3"> <span class="icon">
+						<img width=60 src="images/integrations/travis-small.png" alt="TravisCI"></span>
+                        <h3>TravisCI</h3>
+                    </li>
+                    <li class="col-md-3"><span class="icon">
+						<img height=60 width=60 src="images/integrations/intellij-small.png" alt="IntelliJ"></span>
+                        <h3>IntelliJ</h3>
+                    </li>
+                    <li class="col-md-3"> <span class="icon">
+						<img height=55 width=60 src="images/integrations/eclipse-small.png" alt="Eclipse"></span>
+                        <h3>Eclipse</h3>
+                    </li>
+				</ul>
+            </div>
+        </section>
+
+
+
+
+
+<!-- ==============================================
+		LANGUAGES
+=================================================== -->
+<section class="brands">
+    <div class="container">
+        <div class="row justify-content-center head-block" >
+            <div class="col-md-12" style="text-align:center;margin-bottom:30px">
+                <h2>400+ Supported Languages</h2>
+            </div>
+        </div>
+        <ul class="owl-carousel clearfix">
+            <li style="width:75px" ><img src="images/languages/c-small.png" class="img-fluid" alt="C Language"></li>
+            <li style="width:75px"><img src="images/languages/c++-small.png" class="img-fluid" alt="C++ Language"></li>
+            <li style="width:75px"><img src="images/languages/csharp-small.png" class="img-fluid" alt="C Sharp Language"></li>
+            <li style="width:56px"><img  src="images/languages/go-small.png" class="img-fluid" alt="Go Language"></li>
+            <li style="width:45px"><img src="images/languages/java-small.png" class="img-fluid" alt="Java Language"></li>
+            <li style="width:139px"><img src="images/languages/php-small.png" class="img-fluid" alt="PHP Language"></li>
+            <li style="width:152px"><img src="images/languages/groovy-small.png" class="img-fluid" alt="Groovy Language"></li>
+            <li style="width:75px" ><img src="images/languages/ruby-small.png" class="img-fluid" alt="Ruby Language"></li>
+            <li style="width:75px" ><img src="images/languages/python-small.png" class="img-fluid" alt="Python Language"></li>
+            <li style="width:75px" ><img src="images/languages/swift-small.png" class="img-fluid" alt="Swift Language"></li>
+            <li style="width:75px" ><img src="images/languages/javascript-small.png" class="img-fluid" alt="Javascript Language"></li>
+            <li style="width:75px" ><img src="images/languages/kotlin-small.png" class="img-fluid" alt="Kotlin Language"></li>
+            <li style="width:75px" ><img src="images/languages/objc-small.png" class="img-fluid" alt="ObjectiveC Language"></li>
+            <li style="width:75px" ><img src="images/languages/r-small.png" class="img-fluid" alt="R Language"></li>
+            <li style="width:75px" ><img src="images/languages/sql-small.png" class="img-fluid" alt="SQL Language"></li>
+
+        </ul>
+    </div>
+</section><!-- ==============================================
+	CONTACT
+=================================================== -->
+<section id="contact" class="need-to-discuss bg-img padding-lg" style="background-image: linear-gradient(to bottom right, rgb(29, 53, 87) 50%, #4b6880); font-color:white">
+    <div class="container" style="max-width: 800px">
+        <div class="row justify-content-center">
+            <div class="col-md-10 head-block">
+                <h2>Do You Still Have Questions or Would You Like a Demo</h2>
+            </div>
+        </div>
+
+        <form action="/mail/mail.php" onsubmit="return validateForm();">
+            <div class="submit-form row d-flex">
+                <div class="col-md-3">
+                    <label>First Name*<span style="margin-left: 20px;color:red;" id="firstNameMessage"></span></label>
+                    <input id="firstName" name="firstName" type="text">
+                </div>
+                <div class="col-md-3">
+                    <label>Last Name*<span style="margin-left: 20px;color:red;" id="lastNameMessage"></span></label>
+                    <input id="lastName" name="lastName" type="text">
+                </div>
+                <div class="col-md-6">
+                    <label>Company*<span style="margin-left: 20px;color:red;" id="companyMessage"></span></label>
+                    <input id="company" name="company" type="text">
+                </div>
+                <div class="col-md-6">
+                    <label>Phone number</label>
+                    <input name="phone"  type="text">
+                </div>
+                <div class="col-md-6">
+                    <label>Business email*<span style="margin-left: 20px;color:red;" id="emailMessage"></span></label>
+                    <input id="email" name="email" type="text">
+                </div>
+                <div class="col-md-12">
+                    <label>Comments</label>
+                    <input name="comments"  type="text">
+                </div>
+                <div class="col-md-12">
+                    <input type="hidden" name="action" value="contact">
+                    <button name="submit" class="submit-btn">Submit Now</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section><!-- ==============================================
+		Footer
+=================================================== -->
+        <footer class="footer dark-bg" style="background-color: #262729">
+            <div class="top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-7 mob-acco">
+                            <div class="quick-links">
+                                <h4>Products</h4>
+                                <ul>
+                                    <li><a href="vulnerability-management">Vulnerability Management</a></li>
+                                    <li style="padding-left:40px"><a href="about-us">About Us</a></li>
+                                    <li><a href="license-management">License Management</a></li>
+                                    <li style="padding-left:40px"><a href="contact">Contact Us</a></li>
+                                    <li><a href="supply-chain-risk-management">Supply Chain Risk & Quality</a></li>
+                                    <li style="padding-left:40px"><a href="blog">Blog</a></li>
+                                    <li><a href="embedded-open-source">Embedded Open Source</a></li>
+                                    <li style="padding-left:40px"><a href="privacy">Privacy policy</a></li>
+                                    <li><a href="open-source-audit">Merger & Acquisition Audits</a></li>
+                                    <li style="padding-left:40px"><a href="terms">Terms of Use</a></li>
+                                    <li><a href="integrations-languages">Integrations & Language Support</a></li>
+                                    <li style="padding-left:40px"><a href="/">Home</a></li>
+                                    <li></li>
+                                    <li style="padding-left:40px"><a href="pricing">Pricing</a></li>
+                                </ul>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-lg-5">
+                                    <div class="connect-outer">
+                                        <h4>Connect with Us</h4>
+                                        <ul class="connect-us">
+                                            <li><a style="border-radius: 5px;" href="https://www.linkedin.com/company/threatrix/"><i style="font-size: 20px;line-height: 2" class="fab fa-linkedin-in"></i></i></a></li>
+                                            <li><a style="border-radius: 5px;" href="https://twitter.com/threatrixio"><i style="font-size: 20px;line-height: 2" class="fab fa-twitter"></i></a></li>
+                                            <li><a  style="border-radius: 5px;"href="https://fb.me/threatrixinc"><i style="font-size: 20px;line-height: 2;" class="fab fa-facebook-f"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tweet clearfix">
+                                        <div  style="text-align:left">
+                                            <img style="filter: drop-shadow(2px 3px 3px #007bff);width: 140px" src="/images/logo-emblem-trans.png">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 col-lg-7" style="margin-top: 30px">
+                                    <div class="subscribe">
+                                        <h4>Subscribe!</h4>
+                                        <p class="hidden-xs">Get early access to new features, release updates and beta reviews plus the latest news</p>
+                                        <div class="input-outer clearfix">
+                                            <div id="mc_embed_signup">
+                                                <form action="mail.php" method="post" class="validate">
+                                                    <div id="mc_embed_signup_scroll">
+                                                        <input type="email" value=""  name="email" class="email" placeholder="email address" required>
+                                                        <div class="clear">
+                                                            <input type="hidden" name="action" value="subscribe">
+                                                            <input type="submit" value="Subscribe" name="submit" class="button">
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+						
+                        <div class="col-md-6 col-lg-5 mob-acco">
+                            <div class="recent-post">
+                                <h4>Recent Posts</h4>
+                                <ul class="list-unstyled">
+                                    <li class="media">
+                                        <figure class="d-flex"><img style="width:100px" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.MoL27wWua_7tQK9GPLh7yQHaCx%26pid%3DApi&f=1" class="img-fluid" alt=""></figure>
+                                        <div class="media-body">
+                                            <h5><a href="https://threatrix.io/blog/cybersecurity/cyber-attacks-can-kill-your-smb">Can Cyberattacks kill your SMB</a></h5>
+                                            <p><span>15 March</span> 2021</p>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <figure class="d-flex"><img style="width:100px" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.PAEuGc9b3HhUxHwpMKy7AgHaFj%26pid%3DApi&f=1" class="img-fluid" alt=""></figure>
+                                        <div class="media-body">
+                                            <h5><a href="https://threatrix.io/blog/open-source/open-source-licenses-sparks-debate">Open-Source Licenses Sparks Debate</a></h5>
+                                            <p><span>15 March</span> 2021</p>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <figure class="d-flex"><img style="width:100px" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.UPc6026IsU-IBGBzfgKuWAHaD4%26pid%3DApi&f=1" class="img-fluid" alt=""></figure>
+                                        <div class="media-body">
+                                            <h5><a href="https://threatrix.io/blog/news/extortionists-breach-qualys-using-accellion-exploit">Extortionists Breach Qualys Using Accellion Exploit</a></h5>
+                                            <p><span>10 March</span> 2021</p>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <figure class="d-flex"><img style="width:65px" src="https://lh5.googleusercontent.com/fOPH9wrQho6AKY18clLYB6AaMvD1DcrbyOo3QjJRR-kwjeqH1JlMIcRxz8yFphV0CGPH0hhYvcpjH6ojH1Vn1bF6swbZcZyOOY-1goPVv5hLWf9oKSu7VPPL5WsSgVLYoODJ8Z6P" alt=""></figure>
+                                        <div class="media-body">
+                                            <h5><a href="https://threatrix.io/blog/open-source/the-four-laws-of-cybersecurity">The Four Laws fo Cybersecurity</a></h5>
+                                            <p><span>9 March</span> 2021</p>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <figure class="d-flex"><img style="width:100px" src="https://threatrix.io/blog/wp-content/uploads/2020/01/women-in-cyber-pic.jpg" class="img-fluid" alt=""></figure>
+                                        <div class="media-body">
+                                            <h5><a href="https://threatrix.io/blog/cybersecurity/woman-in-cybersecurity">Woman in Cybersecurity</a></h5>
+                                            <p><span>2 January</span> 2020</p>
+                                        </div>
+                                    </li>
+								</ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="container"> Copyright © 2019 - 2021 Threatrix, Inc. All Rights Reserved.</div>
+            </div>
+
+        </footer>
+
+        <!-- Scroll to top --> 
+        <a href="#" class="scroll-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a> 
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS --> 
+        <script src="/js/jquery.min.js"></script>
+        <!-- Popper JS 
+        <script src="/js/popper.min.js"></script>-->
+        <!-- Bootsrap JS --> 
+        <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+        <!-- Select2 JS 
+        <script src="/assets/select2/js/select2.min.js"></script>-->
+        <!-- Match Height JS --> 
+        <script src="/assets/matchHeight/js/matchHeight-min.js"></script>
+        <!-- Owl Carousal JS  -->
+        <script src="/assets/owl-carousel/js/owl.carousel.min.js"></script>
+		<!-- Counterup JS  
+        <script src="assets/counterup/js/counterup.min.js"></script>--> 
+        <!-- Custom JS --> 
+        <script src="/js/custom.js"></script>
+
+
+        <div id="privacy-pop-up" style="display:none; position:fixed; z-index:9999; bottom:0; left:0; right:0; background:#303235; color:#fff; margin:1em; padding:0.5em; text-align:center;  ">
+            <strong>Important information regarding cookies</strong><br>
+            By using this website, you consent to the use of cookies in accordance with our
+            <a href="/privacy" style="text-decoration: underline; color:#fff">Privacy Policy</a>.<br/><br/>
+            <a  id="exit-popup" style="background:#fff; color:#000; padding:0.25em 0.5em; margin:1em; cursor:pointer; font-weight:bold; font-size:90%;  ">
+                Understood, hide this message</a>
+            <br/>
+        </div>
+
+        <script>
+            jQuery(document).ready(function() {
+                if(localStorage.getItem('pc234978') != '923847'){
+                    jQuery("#privacy-pop-up").delay(1).fadeIn(1000);
+                    localStorage.setItem('pc234978','923847');
+                }
+                jQuery('#exit-popup').click(function(e) // You are clicking the close button
+                {
+                    jQuery('#privacy-pop-up').fadeOut(1000); // Now the pop up is hiden.
+                });
+            });
+        </script>
+		
+    </body>
+</html>
+
